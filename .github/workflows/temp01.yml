@@ -9,13 +9,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Create Project Next Project
       run: |
-        project_number=$(gh api -X POST /repos/${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="Next Project" --jq '.number')
+        project_number=$(gh api -X POST /repos/${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="Next Project" --jq '.id')
         echo 'PROJECT_NUMBER='$project_number >> $GITHUB_ENV
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Todo Column on Next Project
       run: |
-        gh api -X POST /projects/${PROJECT_NUMBER}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
+        gh api -X POST /projects/${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
