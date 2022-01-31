@@ -9,8 +9,9 @@ jobs:
 
     - name: Create Issue From File
       uses: peter-evans/create-issue-from-file@v3
-      title: Create database table for CollegiateSubreddits
-      content-filepath: issues/issue01_create_database_table copy.md
+      with:
+        title: Create database table for CollegiateSubreddits
+        content-filepath: issues/issue01_create_database_table copy.md
     - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
@@ -20,8 +21,9 @@ jobs:
 
     - name: Create Issue From File
       uses: peter-evans/create-issue-from-file@v3
-      title: Create database table for CollegiateSubreddits
-      content-filepath: issues/issue02_add_list_all_and_post_endpoints.md
+      with:
+        title: Create database table for CollegiateSubreddits
+        content-filepath: issues/issue02_add_list_all_and_post_endpoints.md
     - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:

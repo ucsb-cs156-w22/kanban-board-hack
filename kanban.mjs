@@ -49,8 +49,9 @@ const createIssueStep = async (filename, project) => {
     return `
     - name: Create Issue From File
       uses: peter-evans/create-issue-from-file@v3
-      title: ${firstLine}
-      content-filepath: ${filename}
+      with:
+        title: ${firstLine}
+        content-filepath: ${filename}
     - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
