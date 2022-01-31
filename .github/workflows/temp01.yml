@@ -7,15 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Create Project 4th Project
+    - name: Create Project 7th Project
       run: |
-        project_number=$(gh api -X POST /repos/${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="4th Project" --jq '.number')
+        project_number=$(gh api -X POST /repos/${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="7th Project" --jq '.id')
         echo 'PROJECT_NUMBER='$project_number >> $GITHUB_ENV
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Create Todo Column on 4th Project
+    - name: Create Todo Column on 7th Project
       run: |
-        gh api -X POST /projects/${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
+        gh api -X POST /projects/${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="Todo" 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -25,10 +25,10 @@ jobs:
       with:
         title: Create database table for CollegiateSubreddits
         content-filepath: issues/issue01_create_database_table copy.md
-    - name: Add Issue 1 to Kanban board 4th Project
+    - name: Add Issue 1 to Kanban board 7th Project
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: 4th Project
+        project-name: 7th Project
         column-name: Todo
         issue-number: ${{ steps.step1.outputs.issue-number }}
 
@@ -38,9 +38,9 @@ jobs:
       with:
         title: Create `CollegiateSubredditController`, add `GET` (index) and `POST` (create)
         content-filepath: issues/issue02_add_list_all_and_post_endpoints.md
-    - name: Add Issue 2 to Kanban board 4th Project
+    - name: Add Issue 2 to Kanban board 7th Project
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: 4th Project
+        project-name: 7th Project
         column-name: Todo
         issue-number: ${{ steps.step2.outputs.issue-number }}

@@ -45,13 +45,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Create Project ${kanbanBoard}
       run: |
-        project_number=$(gh api -X POST /repos/\${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="${kanbanBoard}" --jq '.number')
+        project_number=$(gh api -X POST /repos/\${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="${kanbanBoard}" --jq '.id')
         echo 'PROJECT_NUMBER='$project_number >> $GITHUB_ENV
       env:
         GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
     - name: Create Todo Column on ${kanbanBoard}
       run: |
-        gh api -X POST /projects/\${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
+        gh api -X POST /projects/\${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="Todo" 
       env:
         GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}`;
 }
