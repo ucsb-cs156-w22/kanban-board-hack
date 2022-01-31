@@ -47,6 +47,7 @@ jobs:
 const createIssueStep = async (filename, project) => {
     const firstLine = await getFirstLine(filename);
     return `
+    - uses: actions/checkout@v2
     - name: Create Issue From File
       uses: peter-evans/create-issue-from-file@v3
       with:
