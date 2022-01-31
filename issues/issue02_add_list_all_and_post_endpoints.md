@@ -1,5 +1,4 @@
-Create database table for CollegiateSubreddits
-
+Create `CollegiateSubredditController`, add `GET` (index) and `POST` (create)
 
 # Acceptance Criteria:
 
@@ -7,10 +6,13 @@ Create database table for CollegiateSubreddits
       in the expected directory.
 - [ ] In `CollegiateSubredditController.java` there is 
       code for a `GET /api/collegiateSubreddits/all` endpoint 
-      that returns a JSON list of all subreddits in the database
+      that returns a JSON list of all subreddits in the database.
+      (We sometimes call this an *index* action since it lists all
+      items in the database.)
 - [ ] In `CollegiateSubredditController.java` there is 
       code for a `POST /api/collegiateSubreddits/post` endpoint
-      that can be used to create a new entry in the table
+      that can be used to create a new entry in the table. (This
+      is a *create* action.)
 - [ ] The Swagger-UI endpoints for these are well documented so that
       any member of the team can understand what they are for and
       how to use them.

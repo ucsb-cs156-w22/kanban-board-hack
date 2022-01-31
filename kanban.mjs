@@ -12,7 +12,7 @@ const srcDir = process.argv[2]
 const kanbanBoard = process.argv[3]
 
 const main = async () => {
-    console.log(createPrefix());
+    console.log(createPrefix(kanbanBoard));
     glob(`${srcDir}/*.md`, async (err, files) => {
         if (err) {
             console.log(err)
@@ -33,7 +33,7 @@ async function getFirstLine(filePath) {
     return (fileContent.match(/(^.*)/) || [])[1] || '';
 } 
 
-const createPrefix = () => {
+const createPrefix = (kanbanBoard) => {
     return `
 name: Create Issue From File Example Command
 on:
@@ -41,7 +41,13 @@ on:
 jobs:
   createIssues:
     runs-on: ubuntu-latest
-    steps:`;
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create Project ${kanbanBoard}
+      run: |
+        gh api -X POST /repos/\${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="${kanbanBoard}"
+      env:
+        GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}`;
 }
 
 
@@ -49,7 +55,6 @@ jobs:
 const createIssueStep = async (step, filename, project) => {
     const firstLine = await getFirstLine(filename);
     return `
-    - uses: actions/checkout@v2
     - name: Create Issue ${step} From File
       id: step${step}
       uses: peter-evans/create-issue-from-file@v3
@@ -65,6 +70,8 @@ const createIssueStep = async (step, filename, project) => {
 
 
 }
+
+
 
 
 await main();

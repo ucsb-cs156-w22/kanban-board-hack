@@ -6,31 +6,35 @@ jobs:
   createIssues:
     runs-on: ubuntu-latest
     steps:
-
     - uses: actions/checkout@v2
+    - name: Create Project New Project
+      run: |
+        gh api -X POST /repos/${{ github.repository }}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="New Project"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Create Issue 1 From File
       id: step1
       uses: peter-evans/create-issue-from-file@v3
       with:
         title: Create database table for CollegiateSubreddits
         content-filepath: issues/issue01_create_database_table copy.md
-    - name: Add Issue 1 to Kanban board My Project
+    - name: Add Issue 1 to Kanban board New Project
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: My Project
+        project-name: New Project
         column-name: Todo
         issue-number: ${{ steps.step1.outputs.issue-number }}
 
-    - uses: actions/checkout@v2
     - name: Create Issue 2 From File
       id: step2
       uses: peter-evans/create-issue-from-file@v3
       with:
-        title: Create database table for CollegiateSubreddits
+        title: Create `CollegiateSubredditController`, add `GET` (index) and `POST` (create)
         content-filepath: issues/issue02_add_list_all_and_post_endpoints.md
-    - name: Add Issue 2 to Kanban board My Project
+    - name: Add Issue 2 to Kanban board New Project
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: My Project
+        project-name: New Project
         column-name: Todo
         issue-number: ${{ steps.step2.outputs.issue-number }}
