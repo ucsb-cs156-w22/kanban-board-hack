@@ -17,9 +17,11 @@ const main = async () => {
         if (err) {
             console.log(err)
         } else {
+            var step = 1;
             for (const filename of files) {
-                const text = await createIssueStep(filename, kanbanBoard);
+                const text = await createIssueStep(step, filename, kanbanBoard);
                 console.log(text);
+                step++;
             }
         }
     })
@@ -44,21 +46,22 @@ jobs:
 
 
 
-const createIssueStep = async (filename, project) => {
+const createIssueStep = async (step, filename, project) => {
     const firstLine = await getFirstLine(filename);
     return `
     - uses: actions/checkout@v2
-    - name: Create Issue From File
+    - name: Create Issue ${step} From File
+      id: step${step}
       uses: peter-evans/create-issue-from-file@v3
       with:
         title: ${firstLine}
         content-filepath: ${filename}
-    - name: Create or Update Project Card
+    - name: Add Issue ${step} to Kanban board ${project}
       uses: peter-evans/create-or-update-project-card@v1
       with:
         project-name: ${project}
         column-name: Todo
-        issue-number: \${{ steps.ciff.outputs.issue-number }}`;
+        issue-number: \${{ steps.step${step}.outputs.issue-number }}`;
 
 
 }
