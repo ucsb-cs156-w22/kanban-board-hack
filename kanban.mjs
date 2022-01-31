@@ -51,7 +51,7 @@ jobs:
         GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
     - name: Create Todo Column on ${kanbanBoard}
       run: |
-        gh api -X POST /projects/\${PROJECT_NUMBER}/projects  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
+        gh api -X POST /projects/\${PROJECT_NUMBER}/columns  -H "Accept: application/vnd.github.v3+json"  -f name="todo" 
       env:
         GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}`;
 }
