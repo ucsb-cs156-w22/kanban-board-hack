@@ -5,8 +5,8 @@ create and populate a Kanban board with issues (all in the todo column).
 
 To run it, use:
 
-./create-workflow kanban-board-number
+node kanban.mjs ./issues kanban-board
 
-It will look in the ./issues directory, and for each .md file found, it will create an issue, and add it to the
-todo column on the indicated Kanban board.
+It will look in the ./issues directory, and for each .md file found, it 
+output code to create the issue, and add it to the todo column on the indicated Kanban board.
 
