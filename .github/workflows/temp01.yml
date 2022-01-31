@@ -15,7 +15,7 @@ jobs:
     - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: foo
+        project-name: My Project
         column-name: Todo
         issue-number: ${{ steps.ciff.outputs.issue-number }}
 
@@ -27,6 +27,6 @@ jobs:
     - name: Create or Update Project Card
       uses: peter-evans/create-or-update-project-card@v1
       with:
-        project-name: foo
+        project-name: My Project
         column-name: Todo
         issue-number: ${{ steps.ciff.outputs.issue-number }}
