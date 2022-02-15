@@ -3,72 +3,65 @@ Set up -docs and -docs-qa websites to host Storybook.
 ## General Acceptance criteria
 
 - [ ] A personal access token with scope `repo` has been added
-      under `Secrets`->`Actions` with key `DOCS_TOKEN`.  
+      under `Secrets`->`Actions` with key `DOCS_TOKEN`.   This goes in the main repo for 
+      team03, NOT in the `-docs` or `-docs-qa` repos. 
 
-## Acceptance Criteria for `team02-yourTeam-docs-qa` 
+## Acceptance Criteria for `team03-yourTeam-docs-qa` 
 
-- [ ] A public repo with the name `team02-yourTeam-docs-qa` exists.
+- [ ] A public repo with the name `team03-yourTeam-docs-qa` exists (create this by hand).
 - [ ] There is a `README.md` file and a `docs/.keep` file on the `main` 
-      branch of the `team02-yourTeam-docs-qa` repo.
-- [ ] GitHub pages is enabled on the `team02-yourTeam-docs-qa` repo.
-- [ ] The README.md has a correct link to the documentation for the QA site (done via a pull request; see "Details-1" below)
+      branch of the `team03-yourTeam-docs-qa` repo.  Create these by hand to establish
+      the main branch before you run the job for the firs time.
+- [ ] GitHub pages is enabled on the `team03-yourTeam-docs-qa` repo (you this by hand
+      in the `Settings` menu of the `-docs-qa` repo.
+- [ ] GitHub pages shows a link to the Storybook for the main branch at 
+      <https://ucsb-cs156-w22.github.io/team03-yourTeam-docs-qa>.  To get this to happen:
+      1. Go under the `Actions` for the main repo
+      2. Look to the list of Actions at left for for `Publish 01 docs`
+      3. Look to the right for a `Run Workflow` button.
+      4. Click and run the workflow from the `main` branch.
+      5. Wait for the workflow to finish
+      6. Wait for GitHub pages to refresh.
 
-## Acceptance Criteria for `team02-yourTeam-docs` 
+## Acceptance Criteria for `team03-yourTeam-docs-qa` 
 
-- [ ] A public repo with the name `team02-yourTeam-docs` exists.
+- [ ] A public repo with the name `team03-yourTeam-docs` exists (create this by hand).
 - [ ] There is a `README.md` file and a `docs/.keep` file on the `main` 
-      branch of the `team02-yourTeam-docs` repo.
-- [ ] GitHub pages is enabled on the `team02-yourTeam-docs` repo.
-- [ ] The README.md has a correct link to the documentation for the QA site (this should happen when you merge the PR from Details-1; see "Details-2" below)
+      branch of the `team03-yourTeam-docs` repo.  Create these by hand to establish
+      the main branch before you run the job for the firs time.
+- [ ] GitHub pages is enabled on the `team03-yourTeam-docs` repo (you this by hand
+      in the `Settings` menu of the `-docs` repo.
+- [ ] GitHub pages shows a link to the Storybook for the main branch at 
+      <https://ucsb-cs156-w22.github.io/team03-yourTeam-docs>.  To get this to happen:
+      1. Go under the `Actions` for the main repo
+      2. Look to the list of Actions at left for for `Publish 02 docs`
+      3. Look to the right for a `Run Workflow` button.
+      4. Click and run the workflow from the `main` branch.
+      5. Wait for the workflow to finish
+      6. Wait for GitHub pages to refresh.
 
 
-## Details-1: Pull request to trigger initial docs setup
+## Acceptance Criteria for README in your main repo
 
-1. Make a new branch `xy-setup-docs` where `xy` are your intials.
-   If working as a pair, use `wx-yz-setup-docs`.
+- [ ] The README.md has a correct link to the documentation for the QA site.
 
-   ```text
-   git checkout main
-   git pull origin main
-   git checkout -b xy-setup-docs
-   ```
+## Details
 
-2. Working on this branch, edit the `README.md` to make the links near the top to the GitHub pages sites for documentation point to the correct spot (e.g. edit this:
+Make a branch `xy-fix-README-doc-links` and on this branch, edit the `README.md` to make the links near the top to the GitHub pages sites for documentation point to the correct spot (e.g. edit this:
 
-   ```md
-   Storybook is here:
-   * Production: <https://ucsb-cs156-w22.github.io/starter-team02-docs/>
-   * QA:  <https://ucsb-cs156-w22.github.io/starter-team02-docs-qa/>
-   ```
+```md
+Storybook is here:
+* Production: <https://ucsb-cs156-w22.github.io/starter-team03-docs/>
+* QA:  <https://ucsb-cs156-w22.github.io/starter-team03-docs-qa/>
+```
 
-   to say this (substituting your team in for `w22-7pm-3`)
+to say this (substituting your team in for `w22-7pm-3`)
 
-   ```md
-   Storybook is here:
-   * Production: <https://ucsb-cs156-w22.github.io/team02-w22-7pm-3-docs/>
-   * QA:  <https://ucsb-cs156-w22.github.io/team02-w22-7pm-3docs-qa/>
-   ```
+```md
+Storybook is here:
+* Production: <https://ucsb-cs156-w22.github.io/team03-w22-7pm-3-docs/>
+* QA:  <https://ucsb-cs156-w22.github.io/team03-w22-7pm-3docs-qa/>
+```
 
-3. Do a pull request to the main branch.  This should trigger the GitHub
-   Action workflow that publishes the documentation to the QA site.
-
-   If this step fails, the usual cause is some problem related to  the personal access token called `DOCS_TOKEN`; either it has:
-   * the wrong scope (it should be `repo`)
-   * the wrong name (it should be `DOCS_TOKEN`)
-   * or was uploaded to the wrong place.
-
-   If it doesn't work, try fixing the token and then re-running the job.
-
-4. Check the link for the QA site and ensure that the 
-   documentation shows up.
-
-
-## Details-2: Pull request to trigger initial docs setup
-
-Once the qa-site is working properly, you should merge the pull request
-for `xy-setup-docs` branch that you created.
-
-This should trigger another GitHub actions run that will set up the 
-repo for the production documentation.
-
+Then, do a pull request to the main branch. 
 
