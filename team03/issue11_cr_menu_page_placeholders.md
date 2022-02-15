@@ -1,4 +1,3 @@
-
 Add CollegiateSubreddits menu and page placeholders
 
 The menu shows up only when logged in.  It has only one item for regular users (List) and two items for Admin users (List and Create). These links go to placeholder pages CollegiateSubredditIndexPage and CollegiateSubredditsCreatePage.
