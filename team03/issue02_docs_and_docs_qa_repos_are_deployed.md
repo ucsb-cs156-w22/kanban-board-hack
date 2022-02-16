@@ -8,11 +8,12 @@ Set up -docs and -docs-qa websites to host Storybook.
 
 ## Acceptance Criteria for `team03-yourTeam-docs-qa` 
 
-- [ ] A public repo with the name `team03-yourTeam-docs-qa` exists (create this by hand).
+- [ ] GitHub Actions is turned on in your main `team03-yourTeam` repo.
+- [ ] A public repo with the name `team03-yourTeam-docs-qa` exists (create this by hand, or you can try manually triggering the GitHub Action in the `team03-yourTeam` repo called `00 Publish 00 docs create repos`. If you already set up the `DOCS_TOKEN` this may do it automatically for you.
 - [ ] There is a `README.md` file and a `docs/.keep` file on the `main` 
       branch of the `team03-yourTeam-docs-qa` repo.  Create these by hand to establish
-      the main branch before you run the job for the firs time.
-- [ ] GitHub pages is enabled on the `team03-yourTeam-docs-qa` repo (you this by hand
+      the main branch before you run the job for the first time. (If the script worked at the previous step, you will NOT have to do this :-) )
+- [ ] GitHub pages is enabled on the `team03-yourTeam-docs-qa` repo (you probably have to do this by hand) for the `main` branch and `/docs` folder,
       in the `Settings` menu of the `-docs-qa` repo.
 - [ ] GitHub pages shows a link to the Storybook for the main branch at 
       <https://ucsb-cs156-w22.github.io/team03-yourTeam-docs-qa>.  To get this to happen:
@@ -25,11 +26,12 @@ Set up -docs and -docs-qa websites to host Storybook.
 
 ## Acceptance Criteria for `team03-yourTeam-docs-qa` 
 
-- [ ] A public repo with the name `team03-yourTeam-docs` exists (create this by hand).
+- [ ] A public repo with the name `team03-yourTeam-docs` exists (create this by hand, unless the script worked at the previous step.)
 - [ ] There is a `README.md` file and a `docs/.keep` file on the `main` 
       branch of the `team03-yourTeam-docs` repo.  Create these by hand to establish
-      the main branch before you run the job for the firs time.
-- [ ] GitHub pages is enabled on the `team03-yourTeam-docs` repo (you this by hand
+      the main branch before you run the job for the first time. (Unless the
+      script worked at the previous step.)
+- [ ] GitHub pages is enabled on the `team03-yourTeam-docs` repo (you probably have to do this by hand) for the `main` branch and `/docs` folder.
       in the `Settings` menu of the `-docs` repo.
 - [ ] GitHub pages shows a link to the Storybook for the main branch at 
       <https://ucsb-cs156-w22.github.io/team03-yourTeam-docs>.  To get this to happen:
