@@ -1,6 +1,6 @@
-Table component for CollegiateSubreddits
+Table component for UCSBSubjects
 
-Using the `UCSBDatesTable` component as a model, create a similar component for CollegiateSubreddits.
+Using the `UCSBDatesTable` component as a model, create a similar component for UCSBSubjects.
 
 
 # ACs
