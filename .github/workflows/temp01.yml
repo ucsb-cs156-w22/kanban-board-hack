@@ -361,7 +361,7 @@ jobs:
       id: step27
       uses: peter-evans/create-issue-from-file@v3
       with:
-        title: Implement Earthquake Form
+        title: Implement Earthquake Form for Retrieve page.
         content-filepath: issues/issue64_eq_retrieve_form.md
     - name: Add Issue 27 to Kanban board team03
       uses: peter-evans/create-or-update-project-card@v1
@@ -374,7 +374,7 @@ jobs:
       id: step28
       uses: peter-evans/create-issue-from-file@v3
       with:
-        title: Implement List page for Earthquakes 
+        title: Add Purge Button to Earthquakes List Page
         content-filepath: issues/issue65_eq_purge_button.md
     - name: Add Issue 28 to Kanban board team03
       uses: peter-evans/create-or-update-project-card@v1
