@@ -1,4 +1,4 @@
-Implement List page for Earthquakes 
+Add Purge Button to Earthquakes List Page
 
 On the List page for Earthquakes, add one `Purge`.
 

@@ -1,4 +1,4 @@
-Implement Earthquake Form
+Implement Earthquake Form for Retrieve page.
 
 Create a form component similar to the form for UCSBDatesForm except that this form is not for data entry of new records.  
 
